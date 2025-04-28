@@ -1,0 +1,57 @@
+ion-header {
+  --background: #000;  /* Background color of the header */
+}
+
+ion-toolbar {
+  --background: #000;  /* Black background for toolbar */
+}
+
+ion-title {
+  color: white;  /* White text color for the title */
+  text-align: left;  /* Align text to the left */
+  margin-left: 10px;  /* Optional: Add some left margin for spacing */
+}
+
+/* Aligning the content text and items to the left */
+ion-content {
+  text-align: left;  /* Align text inside content to the left */
+}
+
+ion-list {
+  background-color: #000;
+  padding: 10px;
+}
+
+ion-item {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+ion-item:hover {
+  background-color: #444;
+}
+
+ion-label {
+  color: white;
+  font-size: 16px;
+}
+
+ion-checkbox {
+  --color-checked: #ff6347;
+  --color: #ff6347;
+  margin-left: 10px;
+}
+
+ion-button {
+  color: white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
