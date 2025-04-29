@@ -1,20 +1,21 @@
 ion-header {
-  --background: #000;  /* Background color of the header */
+  --background: #000;
+  order:0 !important;
 }
 
 ion-toolbar {
-  --background: #000;  /* Black background for toolbar */
+  --background: #000;
 }
 
 ion-title {
-  color: white;  /* White text color for the title */
-  text-align: left;  /* Align text to the left */
-  margin-left: 10px;  /* Optional: Add some left margin for spacing */
+  color: white;
+  text-align: left;
+  margin-left: 10px;
 }
 
-/* Aligning the content text and items to the left */
+
 ion-content {
-  text-align: left;  /* Align text inside content to the left */
+  text-align: left; 
 }
 
 ion-list {

@@ -11,6 +11,12 @@
   <ion-item>
     <ion-label position="stacked">{{descripcion}}</ion-label>
     <ion-input [(ngModel)]="valueInput" *ngIf="insert" placeholder="ingresa un valor...."></ion-input>
+    <ion-select [(ngModel)]="selectedId" *ngIf="options.length > 0">
+      <ion-select-option *ngFor="let opt of options"
+      [value]="opt.key">
+      {{ opt.value }}
+      </ion-select-option>
+    </ion-select>
   </ion-item>
-  <ion-button expand="full" color="primary" (click)="saveTask()">{{ approveButtonName }}</ion-button>
+  <ion-button expand="full" color="primary" (click)="saveModal()">{{ approveButtonName }}</ion-button>
 </ion-content>

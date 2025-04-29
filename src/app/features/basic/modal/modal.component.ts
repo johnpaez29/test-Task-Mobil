@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common'; 
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { Option } from 'src/app/models/option';
 
 @Component({
   selector: 'app-task-modal',
@@ -18,14 +19,23 @@ export class TaskModalComponent {
   insert: boolean = false;
   approveButtonName: string = '';
   valueInput: string = '';
-
+  options: Option[] = [];
+  selectedId: string = '';
   constructor(private modalController: ModalController) {}
 
   closeModal() {
     this.modalController.dismiss();
   }
 
-  saveTask() {
-    this.modalController.dismiss(this.valueInput);
+  saveModal() {
+
+    if (this.options.length > 0 && !this.selectedId) {
+        return;
+    }
+
+    if (this.insert && !this.valueInput) {
+        return;
+    }
+    this.modalController.dismiss({value:this.valueInput,valueSelect:this.selectedId});
   }
 }

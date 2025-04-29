@@ -1,6 +1,9 @@
+import { Category } from "./category";
+
 export interface Task {
     id?: string | null;
     isExec: boolean;
-    descripcion: string;
+    description: string;
     active: boolean;
+    category?: Category | null;
   }

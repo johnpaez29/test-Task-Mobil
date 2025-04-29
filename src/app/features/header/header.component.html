@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-content">
+      <div [class]="dynamicClassTask" (click)="navToTasks()">
+        <ion-label>Tareas</ion-label>
+      </div>
+      <div [class]="dynamicClassCategory" (click)="navToCategories()">
+        <ion-label>Categorias</ion-label>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>

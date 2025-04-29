@@ -25,6 +25,7 @@
     "@capacitor/android": "^7.2.0",
     "@capacitor/angular": "^2.0.3",
     "@capacitor/core": "^7.2.0",
+    "@capacitor/ios": "^7.2.0",
     "@ionic/angular": "^8.5.5",
     "@ionic/cordova-builders": "^12.2.0",
     "firebase": "^11.6.1",

@@ -1,20 +1,51 @@
+<app-header [dynamicClassTask]="'left-vignette selected'"></app-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-label>Buscar por categoria</ion-label>
+<ion-select [(ngModel)]="selectedId" *ngIf="optionsCategory.length > 0"
+  placeholder="Seleccione una categoria"
+  cancelText="Limpiar Filtro"
+  okText="Ok"
+  (ionChange)="filterCategory($event)"
+  (ionCancel)="clearFilterCategory()"
+  >
+    <ion-select-option *ngFor="let opt of optionsCategory"
+    [value]="opt.id">
+    {{ opt.name }}
+    </ion-select-option>
+  </ion-select>
+
+
 <ion-content>
-  <ion-title>Tareas</ion-title>
-    <!-- Table-like structure using ion-list with custom styling -->
     <ion-list>
       <ion-item lines="none" class="table-header">
         <ion-label>Ejecutada?</ion-label>
         <ion-label>Descripción</ion-label>
+        <ion-label>Categoria</ion-label>
         <ion-label>Acciones</ion-label>
       </ion-item>
   
-      <ion-item *ngFor="let task of tasksList">
+      <ion-item *ngFor="let task of paginatedTasks">
         <ion-checkbox [(ngModel)]="task.isExec" (click)="updateTaskExec(task.id, task.isExec)"></ion-checkbox>
-        <ion-label>{{ task.descripcion }}</ion-label>
+        <ion-label>{{ task.description }}</ion-label>
+        <ion-label>{{ task.category?.name }}</ion-label>
         <ion-button (click)="deleteTaskModal(task.id)">Borrar Tarea</ion-button>
       </ion-item>
     </ion-list>
-
+    <div class="pagination-controls">
+      <ion-button (click)="prevPage()" [disabled]="!taskService.hasPrevious()">
+        Anterior
+      </ion-button>
+      <span>Página {{ currentPage }}</span>
+      <ion-button (click)="nextPage()"  [disabled]="!taskService.hasNext()">
+        Siguiente
+      </ion-button>
+    </div>
   <ion-button (click)="saveTaskModal()">Adicionar Tarea</ion-button>
   <p>Revisa tus tareas diariamente!</p>
 </ion-content>
