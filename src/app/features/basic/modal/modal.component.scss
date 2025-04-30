@@ -4,12 +4,34 @@ ion-header {
   
   ion-content {
     padding: 20px;
+    margin-top: 20rem;
   }
   
   ion-item {
     margin-bottom: 20px;
+    margin-top: 1rem;
   }
   
   ion-button {
     margin-top: 20px;
+    margin: 2rem;
   }
+
+  .my-modal-class {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  ion-modal {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+

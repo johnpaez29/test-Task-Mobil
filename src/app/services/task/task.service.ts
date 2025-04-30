@@ -11,7 +11,7 @@ export class TaskService {
   //Valiables
   private tasksCollection: CollectionReference<DocumentData>;
   private currentPageDocs: QueryDocumentSnapshot<DocumentData>[] = [];
-  private currentIndex = -1;
+  public currentIndex = -1;
   private pageSize = environment.pageSize;
 
   constructor(private firestore: Firestore) {

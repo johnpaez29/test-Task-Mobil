@@ -4,7 +4,7 @@
       <div [class]="dynamicClassTask" (click)="navToTasks()">
         <ion-label>Tareas</ion-label>
       </div>
-      <div [class]="dynamicClassCategory" (click)="navToCategories()">
+      <div [class]="dynamicClassCategory" *ngIf="!hideCategoryModule" (click)="navToCategories()">
         <ion-label>Categorias</ion-label>
       </div>
     </div>

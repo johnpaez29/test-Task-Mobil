@@ -1,21 +1,47 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common'; 
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { Option } from 'src/app/models/option';
-
+import { 
+  ModalController,
+  IonButton,
+  IonSelect,
+  IonSelectOption,
+  IonHeader,
+  IonButtons,
+  IonItem,
+  IonToolbar,
+  IonLabel,
+  IonContent,
+  IonTitle,
+  IonInput
+} from '@ionic/angular/standalone'
 @Component({
   selector: 'app-task-modal',
   standalone: true,
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
-  imports: [CommonModule, IonicModule,FormsModule], 
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonButton,
+    IonSelect,
+    IonSelectOption,
+    IonHeader,
+    IonButtons,
+    IonItem,
+    IonToolbar,
+    IonLabel,
+    IonContent,
+    IonTitle,
+    IonInput
+  ], 
 })
 export class TaskModalComponent {
 
   title: string = '';
   descripcion: string = '';
+  descripcionSelect : string = '';
   insert: boolean = false;
   approveButtonName: string = '';
   valueInput: string = '';

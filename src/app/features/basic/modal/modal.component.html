@@ -11,6 +11,7 @@
   <ion-item>
     <ion-label position="stacked">{{descripcion}}</ion-label>
     <ion-input [(ngModel)]="valueInput" *ngIf="insert" placeholder="ingresa un valor...."></ion-input>
+    <ion-label position="stacked" *ngIf="options.length > 0">{{descripcionSelect}}</ion-label>
     <ion-select [(ngModel)]="selectedId" *ngIf="options.length > 0">
       <ion-select-option *ngFor="let opt of options"
       [value]="opt.key">

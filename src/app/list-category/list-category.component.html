@@ -5,7 +5,7 @@
     <ion-title>Categorias</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-button (click)="saveCategoryModal()">Adicionar Categoria</ion-button>
 <ion-content>
     <ion-list>
       <ion-item lines="none" class="table-header">
@@ -14,7 +14,9 @@
   
       <ion-item *ngFor="let category of paginatedCategories">
         <ion-label>{{ category.name }}</ion-label>
-        <ion-button (click)="deleteCategoryModal(category.id)">Borrar Categoria</ion-button>
+        <ion-button (click)="deleteCategoryModal(category.id)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
       </ion-item>
     </ion-list>
     <div class="pagination-controls">
@@ -26,6 +28,6 @@
         Siguiente
       </ion-button>
     </div>
-  <ion-button (click)="saveCategoryModal()">Adicionar Categoria</ion-button>
+
   <p>Maneja tus categorias!</p>
 </ion-content>

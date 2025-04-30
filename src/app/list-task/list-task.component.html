@@ -19,33 +19,32 @@
     {{ opt.name }}
     </ion-select-option>
   </ion-select>
-
-
+  <ion-button (click)="saveTaskModal()">Adicionar Tarea</ion-button>
 <ion-content>
     <ion-list>
       <ion-item lines="none" class="table-header">
         <ion-label>Ejecutada?</ion-label>
         <ion-label>Descripción</ion-label>
-        <ion-label>Categoria</ion-label>
         <ion-label>Acciones</ion-label>
       </ion-item>
   
       <ion-item *ngFor="let task of paginatedTasks">
         <ion-checkbox [(ngModel)]="task.isExec" (click)="updateTaskExec(task.id, task.isExec)"></ion-checkbox>
         <ion-label>{{ task.description }}</ion-label>
-        <ion-label>{{ task.category?.name }}</ion-label>
-        <ion-button (click)="deleteTaskModal(task.id)">Borrar Tarea</ion-button>
+        <ion-button (click)="deleteTaskModal(task.id)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
       </ion-item>
     </ion-list>
     <div class="pagination-controls">
       <ion-button (click)="prevPage()" [disabled]="!taskService.hasPrevious()">
         Anterior
       </ion-button>
-      <span>Página {{ currentPage }}</span>
+      <span>Página {{ taskService.currentIndex + 1 }}</span>
       <ion-button (click)="nextPage()"  [disabled]="!taskService.hasNext()">
         Siguiente
       </ion-button>
     </div>
-  <ion-button (click)="saveTaskModal()">Adicionar Tarea</ion-button>
+
   <p>Revisa tus tareas diariamente!</p>
 </ion-content>

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, LoadingController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { TaskService } from '../services/task/task.service';
 import { Task } from '../models/task'; 
 import { FormsModule } from '@angular/forms';
@@ -10,12 +8,47 @@ import { HeaderComponent } from '../features/header/header.component';
 import { CategoryService } from '../services/category/category.service';
 import { Option } from '../models/option';
 import { Category } from '../models/category';
+import { 
+  IonSelect, 
+  IonButton, 
+  IonHeader, 
+  IonLabel, 
+  IonTitle, 
+  IonSelectOption, 
+  IonCheckbox, 
+  IonItem,
+  IonContent,
+  IonList,
+  IonToolbar,
+  LoadingController,
+  ModalController,
+  IonIcon
+} from '@ionic/angular/standalone'
+import { addIcons } from 'ionicons';
+import { trash } from 'ionicons/icons';
 
 @Component({
   selector: 'app-list-task',
+  standalone: true,
   templateUrl: './list-task.component.html',
   styleUrls: ['./list-task.component.scss'],
-  imports: [IonicModule,CommonModule,FormsModule, HeaderComponent],
+  imports: [
+    IonSelect,
+    IonButton,
+    IonHeader, 
+    IonLabel,
+    IonTitle,
+    CommonModule,
+    FormsModule, 
+    HeaderComponent,
+    IonSelectOption,
+    IonCheckbox,
+    IonItem,
+    IonContent,
+    IonList,
+    IonToolbar,
+    IonIcon
+  ],
 })
 export class ListTaskComponent  implements OnInit {
 
@@ -24,7 +57,10 @@ export class ListTaskComponent  implements OnInit {
     private modalController : ModalController,
     private loadingController: LoadingController,
     private categoryService: CategoryService
-  ){}
+  ){
+    addIcons({ trash });
+  }
+
 
   //Variables
   tasksList: Task[] = [];
@@ -41,9 +77,12 @@ export class ListTaskComponent  implements OnInit {
   async ngOnInit() {
       await this.getTasks('start');
       this.optionsCategory = await this.categoryService.getCategories();
+      console.log('get categories');
       this.updatePaginatedTasks();
   }
-
+  async ionViewWillEnter() {
+    this.optionsCategory = await this.categoryService.getCategories();
+  }
   async createTask(task : Task) {
 
     try {
@@ -64,6 +103,7 @@ export class ListTaskComponent  implements OnInit {
       this.showLoading();
       const idData = id ?? '';
       console.log('id a borrar: ', idData);
+      
       await this.taskService.deleteTask(idData);
   
       this.tasksList = this.tasksList.filter(task => task.id !== id);
@@ -95,7 +135,8 @@ export class ListTaskComponent  implements OnInit {
         descripcion: 'Seguro que desar borrar tarea?',
         approveButtonName: 'Si',
         insert: false,
-        valueInput : id
+        valueInput : id,
+        cssClass: 'my-modal-class'
       }
     });
 
@@ -115,6 +156,7 @@ export class ListTaskComponent  implements OnInit {
         descripcion: 'Adiciona una tarea',
         approveButtonName: 'Guardar',
         insert: true,
+        descripcionSelect: 'Selecciona una categoria',
         options: this.optionsCategory.map(option =>({ key : option.id, value: option.name})) as Option[],
       }
     });

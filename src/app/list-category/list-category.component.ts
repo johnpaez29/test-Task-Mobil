@@ -1,18 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, LoadingController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { Router } from '@angular/router';
 import { CategoryService } from '../services/category/category.service';
 import { Category } from '../models/category'; 
-import { FormsModule } from '@angular/forms';
 import { TaskModalComponent } from '../features/basic/modal/modal.component';
 import { HeaderComponent } from '../features/header/header.component';
+import { 
+  ModalController, 
+  LoadingController,
+  IonButton,
+  IonHeader,
+  IonToolbar,
+  IonContent,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonTitle,
+  IonIcon
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { trash } from 'ionicons/icons';
+
 @Component({
   selector: 'app-list-category',
   templateUrl: './list-category.component.html',
   styleUrls: ['./list-category.component.scss'],
-  imports: [IonicModule, CommonModule, HeaderComponent]
+  imports: [ 
+    CommonModule, 
+    HeaderComponent,
+    IonButton,
+    IonHeader,
+    IonToolbar,
+    IonContent,
+    IonItem,
+    IonLabel,
+    IonList,
+    IonTitle,
+    IonIcon
+  ]
 })
 export class ListCategoryComponent  implements OnInit {
 
@@ -20,7 +44,9 @@ export class ListCategoryComponent  implements OnInit {
       private categoryService: CategoryService,
       private modalController : ModalController,
       private loadingController: LoadingController
-    ){}
+    ){
+      addIcons({ trash });
+    }
 
   //Variables
     categoryList: Category[] = [];
@@ -88,7 +114,8 @@ export class ListCategoryComponent  implements OnInit {
           descripcion: 'Seguro que desar borrar categoria?',
           approveButtonName: 'Si',
           insert: false,
-          valueInput : id
+          valueInput : id,
+          cssClass: 'my-modal-class'
         }
       });
   
