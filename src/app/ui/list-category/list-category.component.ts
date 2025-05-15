@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryService } from '../services/category/category.service';
+import { CategoryService } from '../infraestructure/services/category/category.service';
 import { Category } from '../models/category'; 
 import { TaskModalComponent } from '../features/basic/modal/modal.component';
 import { HeaderComponent } from '../features/header/header.component';

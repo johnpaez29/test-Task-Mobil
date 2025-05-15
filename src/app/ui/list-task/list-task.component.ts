@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskService } from '../services/task/task.service';
+import { TaskService } from '../infraestructure/services/task/task.service';
 import { Task } from '../models/task'; 
 import { FormsModule } from '@angular/forms';
 import { TaskModalComponent } from '../features/basic/modal/modal.component';
 import { HeaderComponent } from '../features/header/header.component';
-import { CategoryService } from '../services/category/category.service';
+import { CategoryService } from '../infraestructure/services/category/category.service';
 import { Option } from '../models/option';
 import { Category } from '../models/category';
 import { 
