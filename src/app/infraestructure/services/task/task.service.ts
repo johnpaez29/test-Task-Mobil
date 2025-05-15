@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, query, QueryDocumentSnapshot,where,startAfter,endBefore,limitToLast, getDocs, addDoc, CollectionReference, DocumentData, doc, orderBy, limit, updateDoc, getDoc } from '@angular/fire/firestore';
-import { Task } from '../../models/task'; 
+import { Task } from 'src/app/core/domain/models/task';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
-import { RemoteConfigService } from '../remote-config.service';
+import { RemoteConfigService } from '../../infraestructure/services/remote-config.service';
 
 @Component({
   selector: 'app-home',

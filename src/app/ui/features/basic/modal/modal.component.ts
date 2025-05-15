@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
-import { Option } from 'src/app/models/option';
+import { Option } from 'src/app/core/domain/models/option'; 
 import { 
   ModalController,
   IonButton,

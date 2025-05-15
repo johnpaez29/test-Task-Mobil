@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskService } from '../infraestructure/services/task/task.service';
-import { Task } from '../models/task'; 
+import { TaskService } from 'src/app/infraestructure/services/task/task.service';
+import { Task } from 'src/app/core/domain/models/task'; 
 import { FormsModule } from '@angular/forms';
 import { TaskModalComponent } from '../features/basic/modal/modal.component';
 import { HeaderComponent } from '../features/header/header.component';
-import { CategoryService } from '../infraestructure/services/category/category.service';
-import { Option } from '../models/option';
-import { Category } from '../models/category';
+import { CategoryService } from 'src/app/infraestructure/services/category/category.service';
+import { Option } from 'src/app/core/domain/models/option';
+import { Category } from 'src/app/core/domain/models/category'; 
 import { 
   IonSelect, 
   IonButton, 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, query, where, getDocs, addDoc, CollectionReference, DocumentData, doc, deleteDoc, updateDoc, getDoc } from '@angular/fire/firestore';
-import { Category } from 'src/app/models/category';
+import { Category } from 'src/app/core/domain/models/category'; 
 @Injectable({
   providedIn: 'root'
 })

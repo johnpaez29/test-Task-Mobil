@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { RemoteConfigService } from 'src/app/remote-config.service';
+import { RemoteConfigService } from 'src/app/infraestructure/services/remote-config.service';
 import {
   IonLabel,
   IonToolbar,
